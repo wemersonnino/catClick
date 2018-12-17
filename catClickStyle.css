@@ -1,0 +1,19 @@
+h1{text-align: center;}
+
+h2{text-align: center;font-size: 2em;}
+
+img{
+	padding: 0;
+	margin: 1rem;
+	text-align: left;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+ul{
+	text-align: center;
+	float: left;
+}
+span{margin-left: 1rem;font-weight: 700; font-size: 2em;}
