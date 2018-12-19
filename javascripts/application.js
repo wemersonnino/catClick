@@ -1,37 +1,73 @@
 $(document).ready(function() {
-    /*let nameCat = ['Cat KiKI', 'Cat Edi', 'Cat Didi', 'Cat Kely', 'Cat Vivi'];
-    let catImg = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];*/
-    const catsImages = ['cat01.jpg', 'cat02.jpg', 'cat03.jpg', 'cat04.jpg', 'cat05.jpg'];
-    const catsName = ['Cat KiKI', 'Cat Edi', 'Cat Didi', 'Cat Kely', 'Cat Vivi'];
 
-    let image = [...catsImages];
-    let name = [...catsName];
+var catsImages = [ 
+        {
+            src: 'cat01.jpg',
+            alt: 'Cat KiKI',
+            count: 0,
+        },
+        {
+            src: 'cat02.jpg',
+            alt: 'Cat Edi',
+            count: 0,
+        },
+        {
+            src: 'cat03.jpg',
+            alt: 'Cat Didi',
+            count: 0,
+        },
+        {
+            src: 'cat04.jpg',
+            alt: 'Cat Kely',
+            count: 0,
+        },
+        {
+            src: 'cat05.jpg',
+            alt: 'Cat Vivi',
+            count: 0,
+        },
+    ];
 
-    console.log(image);
-    console.log(name);
+let image = [...catsImages];
 
-    let count = 0;
+$('.catImag img').each(function(i, el) {
 
-    let $span = $('img').append('<span>' + count + '</span>');
+ $(this).attr(
+     {
+            'src': 'catClick/img/' + image[i].src,
+            'alt': image[i].alt,
+            'data-count': image[i].count
+        }
+ );
 
-    $.each($('.catImag img'), function(index) {
-        $(this).attr({
-            src: image[index],
-            alt: name[index]
+//$(this).after('<figcaption>' + imageObject[i].alt + '</figcaption>');
+$(this).after('<span class="count"></span>');
+
+})
+
+$.each($('figure'), function(index, el) {
+        $(this).one('click', function(event) {
+            / Act on the event /
+            $(this).append('<figcaption>' + image[index].alt+ '</figcaption>');
         });
-    }); //Update Cat
+    });// update click name, exibe o nome do cat clicado
 
-    $.each($('figure'), function(index, el) {
-    	
-    	$(this).one('click', function(event) {
-    		/* Act on the event */
-    		$(this).append('<figcaption>' + name[index] + '</figcaption>');
-    	});
 
-    });// update click name
+$('.catImag ').click(function(){
+    let countIni = $(this).children('img').attr('data-count');
 
-    // acho que tem quer criar uma função para contar o click
-    
+    $(this).children('.count').text(countIni = parseInt(countIni, 10) + 1);
+    $(this).children('img').attr('data-count',countIni);
 
+    if (countIni == 10) {
+        let mediaCalc; 
+        mediaCalc = parseInt((countIni) / 5); 
+        $(this).after('<p>' + 'Bem Curtido' + '</p>');
+    }
+
+
+    console.log($(this).children('span'));
+
+    })
 
 });
