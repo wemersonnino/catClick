@@ -34,7 +34,7 @@ $('.catImag img').each(function(i, el) {
 
  $(this).attr(
      {
-            'src': 'catClick/img/' + image[i].src,
+            'src': 'img/' + image[i].src,
             'alt': image[i].alt,
             'data-count': image[i].count
         }
