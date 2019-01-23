@@ -48,7 +48,6 @@ $(document).ready(function($) {
             });
             $('#d').unbind('click');
             let cont = image[index].count ++;
-            //cont++;
             $('.count').text(cont);
             if (cont > 10) {
             	cont = 10;
