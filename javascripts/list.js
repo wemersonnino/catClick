@@ -46,6 +46,7 @@ $(document).ready(function($) {
             	'alt': image[index].alt,
             	'data-count':image[index].count
             });
+            $('h2').text(image[index].alt);
             $('#d').unbind('click');
             let cont = image[index].count ++;
             $('.count').text(cont);
